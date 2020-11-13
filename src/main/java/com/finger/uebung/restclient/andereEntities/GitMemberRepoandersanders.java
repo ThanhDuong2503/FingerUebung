@@ -1,4 +1,4 @@
-package com.finger.uebung.entities;
+package com.finger.uebung.restclient.andereEntities;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class GitMemberRepo {
+public class GitMemberRepoandersanders {
 
     private long id;
     private String urlRepo;

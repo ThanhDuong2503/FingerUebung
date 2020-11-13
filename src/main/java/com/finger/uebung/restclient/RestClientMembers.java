@@ -2,6 +2,9 @@ package com.finger.uebung.restclient;
 
 import com.finger.uebung.constants.URIConstants;
 import com.finger.uebung.entities.GitMember;
+import com.finger.uebung.restclient.andereEntities.GitMemberanders;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.ClientResponse;
@@ -13,16 +16,17 @@ import java.util.Collections;
 
 public class RestClientMembers {
 
-   WebClient client = WebClient.create();
+   @Autowired
+   private WebClient client = WebClient.create();
 
-    public void  retrieveMembers() {
+    public Flux<GitMember> retrieveMembers() {
 
         Flux<GitMember> employeeFlux = client.get()
                 .uri("localhost:8080/members")
                 .retrieve()
                 .bodyToFlux(GitMember.class);
 
-        employeeFlux.subscribe(System.out::println);
+        return employeeFlux;
 
     }
 

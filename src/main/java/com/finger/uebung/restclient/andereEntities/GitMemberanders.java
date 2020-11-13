@@ -1,4 +1,4 @@
-package com.finger.uebung.entities;
+package com.finger.uebung.restclient.andereEntities;
 
 import lombok.*;
 
@@ -10,11 +10,10 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class GitMember {
+public class GitMemberanders {
 
     private long id;
-    private String fullname;
-    private List<GitMemberRepo> repositories;
+    private List<GitMemberRepoandersanders> repositories;
     private String urlMember;
 
 }
