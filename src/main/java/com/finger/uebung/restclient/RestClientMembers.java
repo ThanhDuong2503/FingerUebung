@@ -11,6 +11,7 @@ public class RestClientMembers {
 
     private WebClient.Builder webClient;
 
+    /**
     @RequestMapping()
     public List<Member> retrieveMembers(){
 
@@ -19,9 +20,9 @@ public class RestClientMembers {
                 .get()
                 .uri(URIConstants.getAllGitMembers())
                 .retrieve()
-                .bodyToFlux(Member.class)
+                .bodyToFlux(String.class)
                 .collectList()
                 .block();
     }
-
+    **/
 }
