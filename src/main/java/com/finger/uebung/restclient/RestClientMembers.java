@@ -1,15 +1,25 @@
 package com.finger.uebung.restclient;
 
 import com.finger.uebung.constants.URIConstants;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.finger.uebung.entities.GitMember;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import java.lang.reflect.Member;
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 public class RestClientMembers {
 
-    private WebClient.Builder webClient;
+    WebClient client = WebClient.create();
+
+    public void  retrieveMembers() {
+        
+        Flux<GitMember> employeeFlux = client.get()
+                .uri(URIConstants.getAllGitMembers())
+                .retrieve()
+                .bodyToFlux(GitMember.class);
+
+        employeeFlux.subscribe(System.out::println);
+
+    }
+//    private WebClient.Builder webClient;
 
     /**
     @RequestMapping()
