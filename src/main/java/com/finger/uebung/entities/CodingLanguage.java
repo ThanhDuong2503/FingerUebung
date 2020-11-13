@@ -1,2 +1,11 @@
-package com.finger.uebung.constants.entities;public class CodingLanguage {
+package com.finger.uebung.entities;
+
+import lombok.Data;
+
+@Data
+public class CodingLanguage {
+
+    private long id;
+    private String codingLanguageName;
+
 }

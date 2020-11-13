@@ -9,8 +9,8 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class DaoMember implements DaoEntity<Member> {
-    
+public class DaoMemberImpl implements DaoEntity<Member> {
+
     private List<Member> allMembers;
 
     //TODO Hier fehlt noch RestCall

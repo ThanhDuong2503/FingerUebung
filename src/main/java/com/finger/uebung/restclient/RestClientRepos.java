@@ -1,2 +1,4 @@
-package com.finger.uebung.restclient;public class RestClientRepos {
+package com.finger.uebung.restclient;
+
+public class RestClientRepos {
 }
