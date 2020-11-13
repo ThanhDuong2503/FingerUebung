@@ -3,13 +3,14 @@ package com.finger.uebung.dao;
 import com.finger.uebung.entities.GitMember;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Component
 public class DaoMemberImpl implements DaoEntity<GitMember> {
 
     private List<GitMember> allMembers;
