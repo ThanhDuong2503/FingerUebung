@@ -13,16 +13,13 @@ public class JSONObjectMapper {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter;
+
 
     public JSONObjectMapper(){
 
         defaultConfigs();
-    }
-
-    private ObjectMapper getObjectMapper() {
-
-        return objectMapper;
-
     }
 
     private void defaultConfigs() {
@@ -32,9 +29,8 @@ public class JSONObjectMapper {
 
     public MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter(){
 
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setObjectMapper(this.getObjectMapper());
+        mappingJackson2HttpMessageConverter.setObjectMapper(this.objectMapper);
 
-        return converter;
+        return mappingJackson2HttpMessageConverter;
     }
 }

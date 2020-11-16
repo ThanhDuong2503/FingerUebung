@@ -12,11 +12,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
+@NoArgsConstructor
 public class RestClientMembersRestTemplate implements RestClient {
 
     private RestTemplate restTemplate;
