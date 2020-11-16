@@ -2,6 +2,7 @@ package com.finger.uebung.entities;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -10,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class GitMember {
+public class GitMember implements Serializable {
 
     private long id;
     private String fullname;

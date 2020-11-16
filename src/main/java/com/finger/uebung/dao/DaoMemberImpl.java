@@ -23,4 +23,9 @@ public class DaoMemberImpl implements DaoEntity<GitMember> {
 
         return null;
     }
+
+    @Override
+    public GitMember getMember(long id) {
+        return null;
+    }
 }

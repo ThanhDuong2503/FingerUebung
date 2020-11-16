@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/members")
+@RequestMapping()
 public class RestControllerMember {
 
     private final MemberService memberService;
@@ -24,7 +24,7 @@ public class RestControllerMember {
         this.memberService = memberService;
     }
 
-    @GetMapping
+    @GetMapping("/members")
     private Flux<GitMember> getAllMembers() {
 
         List<GitMember> m1List = new TestObject().getMembersTests();
@@ -33,11 +33,11 @@ public class RestControllerMember {
         //return Flux.fromIterable(memberService.getAllMembers());
     }
 
-    @GetMapping("/{id}")
-    private Mono<GitMember> getEmployeeById(@PathVariable long id) {
-        //memberService.findEmployeeById(id);
+    @GetMapping("/one")
+    private Mono<GitMember> getMemberById() {
 
-        return null;
+        GitMember member = new TestObject().getOneMemberTests();
+        return Mono.just(member);
     }
 
     /**

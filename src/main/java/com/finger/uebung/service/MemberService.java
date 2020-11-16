@@ -22,4 +22,8 @@ public class MemberService {
 
         return daoMember.getAllMembers();
     }
+
+    public GitMember getMember(long id){
+        return daoMember.getMember(id);
+    }
 }

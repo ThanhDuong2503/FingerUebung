@@ -9,9 +9,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class UebungApplication {
 
 	@Bean
-	public WebClient webClient() {
+	public WebClient.Builder getWebClientBuilder() {
 
-		return WebClient.create();
+		return WebClient.builder();
 	}
 
 	public static void main(String[] args) {
