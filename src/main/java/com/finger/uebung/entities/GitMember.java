@@ -1,5 +1,6 @@
 package com.finger.uebung.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.io.Serializable;
@@ -14,8 +15,13 @@ import java.util.List;
 public class GitMember implements Serializable {
 
     private long id;
-    private String fullname;
+    //login -> UserName
+    private String login;
+    private String url;
+    private String repos_url;
+
+
+    @JsonIgnoreProperties
     private List<GitMemberRepo> repositories;
-    private String urlMember;
 
 }

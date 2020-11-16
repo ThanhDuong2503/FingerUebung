@@ -27,17 +27,26 @@ public class RestControllerMember {
     @GetMapping("/members")
     private Flux<GitMember> getAllMembers() {
 
+        /**
         List<GitMember> m1List = new TestObject().getMembersTests();
         return Flux.fromIterable(m1List);
 
         //return Flux.fromIterable(memberService.getAllMembers());
+         **/
+
+        return null;
     }
 
     @GetMapping("/one")
     private Mono<GitMember> getMemberById() {
 
+        /**
         GitMember member = new TestObject().getOneMemberTests();
         return Mono.just(member);
+
+         **/
+
+        return null;
     }
 
     /**

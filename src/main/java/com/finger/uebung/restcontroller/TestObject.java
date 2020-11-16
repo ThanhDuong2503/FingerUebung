@@ -9,6 +9,7 @@ import java.util.List;
 
 public class TestObject {
 
+    /**
     public List<GitMember> getMembersTests(){
 
         List<GitMember> listMembers = new ArrayList<>();
@@ -46,4 +47,6 @@ public class TestObject {
         return m1;
 
     }
+
+     **/
 }
