@@ -17,7 +17,7 @@ public class DaoMemberImpl implements DaoEntity<GitMember> {
 
     //TODO Hier fehlt noch RestCall
     @Override
-    public List<GitMember> getAllMembers() {
+    public List<GitMember> getAllGitMembers() {
 
         allMembers = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class DaoMemberImpl implements DaoEntity<GitMember> {
     }
 
     @Override
-    public GitMember getMember(long id) {
+    public GitMember getGitMember(long id) {
         return null;
     }
 }

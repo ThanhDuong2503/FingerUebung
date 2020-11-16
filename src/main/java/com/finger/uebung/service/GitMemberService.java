@@ -2,28 +2,27 @@ package com.finger.uebung.service;
 
 import com.finger.uebung.dao.DaoEntity;
 import com.finger.uebung.entities.GitMember;
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class MemberService {
+public class GitMemberService {
 
     private DaoEntity daoMember;
 
     @Autowired
-    public MemberService(DaoEntity daoMember){
+    public GitMemberService(DaoEntity daoMember){
         this.daoMember = daoMember;
     }
 
-    public List<GitMember> getAllMembers(){
+    public List<GitMember> getAllGitMembers(){
 
-        return daoMember.getAllMembers();
+        return daoMember.getAllGitMembers();
     }
 
-    public GitMember getMember(long id){
-        return daoMember.getMember(id);
+    public GitMember getGitMember(long id){
+        return daoMember.getGitMember(id);
     }
 }

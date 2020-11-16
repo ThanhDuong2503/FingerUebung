@@ -1,31 +1,25 @@
 package com.finger.uebung.restcontroller;
 
-import com.finger.uebung.entities.CodingLanguage;
 import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.entities.GitMemberRepo;
-import com.finger.uebung.service.MemberService;
+import com.finger.uebung.service.GitMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.lang.reflect.Member;
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
 @RequestMapping()
-public class RestControllerMember {
+public class RestControllerGitMember {
 
-    private final MemberService memberService;
+    private final GitMemberService gitMemberService;
 
     @Autowired
-    public RestControllerMember(MemberService memberService) {
-        this.memberService = memberService;
+    public RestControllerGitMember(GitMemberService gitMemberService) {
+        this.gitMemberService = gitMemberService;
     }
 
     @GetMapping("/members")
-    private Flux<GitMember> getAllMembers() {
+    private Flux<GitMember> getAllGitMembers() {
 
         /**
         List<GitMember> m1List = new TestObject().getMembersTests();
@@ -38,7 +32,7 @@ public class RestControllerMember {
     }
 
     @GetMapping("/one")
-    private Mono<GitMember> getMemberById() {
+    private Mono<GitMember> getGitMemberById() {
 
         /**
         GitMember member = new TestObject().getOneMemberTests();
