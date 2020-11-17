@@ -17,8 +17,8 @@ public class GitMember implements Serializable {
     private long id;
     //login -> UserName
     private String login;
-    private String url;
-    private String repos_url;
+    private String url; //--> hier steckt das Feld "name" (https://api.github.com/users/0x4a616e)
+    private String repos_url; //-> https://api.github.com/users/0x4a616e/repos
 
 
     @JsonIgnoreProperties

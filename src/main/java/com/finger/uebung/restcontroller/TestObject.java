@@ -1,12 +1,5 @@
 package com.finger.uebung.restcontroller;
 
-import com.finger.uebung.entities.CodingLanguage;
-import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.entities.GitMemberRepo;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestObject {
 
     /**

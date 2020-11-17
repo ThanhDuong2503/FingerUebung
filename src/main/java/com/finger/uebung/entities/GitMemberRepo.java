@@ -13,6 +13,6 @@ import java.io.Serializable;
 public class GitMemberRepo implements Serializable {
 
     private long id;
-    private String urlRepo;
-    private CodingLanguage codingLanguage;
+    private String url;
+    private String language;
 }
