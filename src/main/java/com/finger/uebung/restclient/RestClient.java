@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface RestClient<T> {
 
-    public T retrieveOneGitMember();
+    public T retrieveGitMemberByName(String name);
     public List<T> retrieveAllGitMembers();
 }

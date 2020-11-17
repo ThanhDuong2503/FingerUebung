@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @NoArgsConstructor
 @Component
-public class RestClientMembersWebClient  {
+public class RestClientMembersWebClient implements RestClient {
 
     private WebClient.Builder webClientBuilder;
 
@@ -91,5 +91,15 @@ public class RestClientMembersWebClient  {
         WebClient.Builder webClientBuilder = WebClient.builder();
         RestClientMembersWebClient d = new RestClientMembersWebClient(webClientBuilder);
         System.out.println("Size: " + d.retrieveAllMembers());
+    }
+
+    @Override
+    public GitMember retrieveGitMemberByName(String name) {
+        return null;
+    }
+
+    @Override
+    public List<GitMember> retrieveAllGitMembers() {
+        return null;
     }
 }

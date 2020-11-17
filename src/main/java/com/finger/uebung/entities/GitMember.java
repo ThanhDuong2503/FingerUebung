@@ -1,5 +1,4 @@
 package com.finger.uebung.entities;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import java.io.Serializable;
 import java.util.List;
