@@ -8,5 +8,5 @@ public interface DaoEntity<T> {
 
     List<T> getAllGitMembers();
 
-    GitMember getGitMember(long id);
+    GitMember getGitMemberByName(String fullName);
 }

@@ -23,7 +23,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-@NoArgsConstructor
 public class RestClientMembersRestTemplate implements RestClient {
 
     private RestTemplate restTemplate;

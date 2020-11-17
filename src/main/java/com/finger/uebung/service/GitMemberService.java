@@ -22,7 +22,7 @@ public class GitMemberService {
         return daoMember.getAllGitMembers();
     }
 
-    public GitMember getGitMember(long id){
-        return daoMember.getGitMember(id);
+    public GitMember getGitMemberByName(String fullName){
+        return daoMember.getGitMemberByName(fullName);
     }
 }
