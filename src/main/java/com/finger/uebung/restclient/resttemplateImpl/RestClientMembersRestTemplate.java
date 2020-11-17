@@ -1,7 +1,4 @@
 package com.finger.uebung.restclient.resttemplateImpl;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finger.uebung.constants.URIConstants;
 import com.finger.uebung.entities.GitMember;
 import com.finger.uebung.restclient.RestClient;
@@ -48,6 +45,7 @@ public class RestClientMembersRestTemplate implements RestClient {
 
         return gitMember;
     }
+
     @Override
     public List<GitMember> retrieveAllGitMembers() {
         ResponseEntity<GitMember[]> gitMemebers = restTemplate.getForEntity(URIConstants.getAllGitMembers(), GitMember[].class);
@@ -57,11 +55,4 @@ public class RestClientMembersRestTemplate implements RestClient {
         GitMember[] gitAllMembers = gitMemebers.getBody();
         return Arrays.asList(gitAllMembers);
     }
-
-    public static void main(String[] args) {
-        RestTemplate restTemplate = new RestTemplate();
-        RestClientMembersRestTemplate restClientMembersRestTemplate = new RestClientMembersRestTemplate(restTemplate);
-        System.out.println(restClientMembersRestTemplate.retrieveAllGitMembers());
-    }
-
 }

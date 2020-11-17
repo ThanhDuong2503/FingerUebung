@@ -1,26 +1,18 @@
 package com.finger.uebung.restclient.resttemplateImpl;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.web.client.RestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestClientMembersRestTemplateTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
+    RestTemplate restTemplate = new RestTemplate();
+    RestClientMembersRestTemplate restClientMembersRestTemplate = new RestClientMembersRestTemplate(restTemplate);
 
     @Test
-    void retrieveOneMember() {
-    }
+    void retrieveAllGitMembers() {
 
-    @Test
-    void retrieveAllMembers() {
+        System.out.println(restClientMembersRestTemplate.retrieveAllGitMembers());
     }
 }
