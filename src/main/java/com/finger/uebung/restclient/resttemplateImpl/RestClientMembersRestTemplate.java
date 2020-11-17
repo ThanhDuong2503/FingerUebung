@@ -57,6 +57,15 @@ public class RestClientMembersRestTemplate implements RestClient {
         return Arrays.asList(gitAllMembers);
     }
 
+    private MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter(){
+
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+
+        mappingJackson2HttpMessageConverter.setObjectMapper(this.getObjectMapper());
+
+        return mappingJackson2HttpMessageConverter;
+    }
+
     private ObjectMapper getObjectMapper(){
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -64,14 +73,6 @@ public class RestClientMembersRestTemplate implements RestClient {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         return objectMapper;
-    }
-
-    private MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter(){
-
-        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-        mappingJackson2HttpMessageConverter.setObjectMapper(this.getObjectMapper());
-
-        return mappingJackson2HttpMessageConverter;
     }
 
 }
