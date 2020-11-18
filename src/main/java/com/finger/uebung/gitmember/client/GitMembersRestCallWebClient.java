@@ -1,23 +1,17 @@
-package com.finger.uebung.restclient.webclientImpl;
+package com.finger.uebung.gitmember.webclientImpl;
 
-import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.restclient.RestClient;
+import com.finger.uebung.gitmember.entities.GitMember;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 @NoArgsConstructor
-@Component
-public class RestClientMembersWebClient implements RestClient {
+@Component("WebClientRestClient")
+public class GitMembersAccessor implements com.finger.uebung.base.GitMembersAccessor {
 
     private WebClient.Builder webClientBuilder;
 
@@ -28,7 +22,7 @@ public class RestClientMembersWebClient implements RestClient {
     }
 
     @Autowired
-    public RestClientMembersWebClient(WebClient.Builder webClientBuilder){
+    public GitMembersAccessor(WebClient.Builder webClientBuilder){
         this.webClientBuilder = webClientBuilder;
     }
 
@@ -89,7 +83,7 @@ public class RestClientMembersWebClient implements RestClient {
 
         //CALL ALL MEMBERS
         WebClient.Builder webClientBuilder = WebClient.builder();
-        RestClientMembersWebClient d = new RestClientMembersWebClient(webClientBuilder);
+        GitMembersAccessor d = new GitMembersAccessor(webClientBuilder);
         System.out.println("Size: " + d.retrieveAllMembers());
     }
 

@@ -1,49 +1,40 @@
-package com.finger.uebung.restclient.resttemplateImpl;
+package com.finger.uebung.gitmember.client;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.finger.uebung.constants.URIConstants;
-import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.entities.GitMemberDetails;
-import com.finger.uebung.entities.GitMemberRepo;
-import com.finger.uebung.restclient.RestClient;
-import com.finger.uebung.restclient.webclientImpl.RestClientMembersWebClient;
-import lombok.NoArgsConstructor;
+import com.finger.uebung.base.constants.URIConstants;
+import com.finger.uebung.base.json.ObjectMapper;
+import com.finger.uebung.gitmember.entities.GitMember;
+import com.finger.uebung.gitmember.entities.GitMemberDetails;
+import com.finger.uebung.gitmember.entities.GitMemberRepo;
+import com.finger.uebung.base.GitMembersAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Component
-public class RestClientMembersRestTemplate implements RestClient {
+@Component("RestClientRestTemplate")
+public class GitMembersRestCall implements GitMembersAccessor {
 
     private RestTemplate restTemplate;
     private List<GitMember> gitMembers;
 
-    Logger logger = LoggerFactory.getLogger(RestClientMembersRestTemplate.class);
-
-    public RestClientMembersRestTemplate(){
-        retrieveAllGitMembers();
-    }
+    Logger logger = LoggerFactory.getLogger(GitMembersRestCall.class);
 
     @Autowired
-    public RestClientMembersRestTemplate(RestTemplate restTemplate) {
+    public GitMembersRestCall(RestTemplate restTemplate) {
 
-        super();
         this.restTemplate = restTemplate;
-        restTemplate.getMessageConverters().add(0, this.getMappingJackson2HttpMessageConverter());
-
+        restTemplate.getMessageConverters().add(0, ObjectMapper.getMappingJackson2HttpMessageConverter());
     }
 
     public GitMember retrieveGitMemberByName(String fullName) {
+
+        retrieveAllGitMembers();
 
         Optional<GitMember> gitMember = gitMembers.stream()
                 .filter(e -> e.getGitMemberDetails().getName().equals(fullName))
@@ -106,22 +97,5 @@ public class RestClientMembersRestTemplate implements RestClient {
                     member.setGitMemberRepos(retrieveGitMemberRepositories(member.getRepos_url()));
                     return member;
                 }).collect(Collectors.toList());
-    }
-
-    private MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter() {
-
-        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-        mappingJackson2HttpMessageConverter.setObjectMapper(this.getObjectMapper());
-
-        return mappingJackson2HttpMessageConverter;
-    }
-
-    private ObjectMapper getObjectMapper() {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, false);
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        return objectMapper;
     }
 }

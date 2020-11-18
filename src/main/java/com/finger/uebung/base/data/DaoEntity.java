@@ -1,6 +1,6 @@
-package com.finger.uebung.dao;
+package com.finger.uebung.base;
 
-import com.finger.uebung.entities.GitMember;
+import com.finger.uebung.gitmember.entities.GitMember;
 
 import java.util.List;
 

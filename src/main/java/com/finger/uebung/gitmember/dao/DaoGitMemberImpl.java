@@ -1,24 +1,26 @@
-package com.finger.uebung.dao;
+package com.finger.uebung.gitmember.dao;
 
-import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.restclient.RestClient;
+import com.finger.uebung.base.DaoEntity;
+import com.finger.uebung.gitmember.entities.GitMember;
+import com.finger.uebung.base.GitMembersAccessor;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class DaoMemberImpl implements DaoEntity<GitMember> {
+public class DaoGitMemberImpl implements DaoEntity<GitMember> {
 
     private List<GitMember> GitMembers;
 
     @Autowired
-    private RestClient restclient;
+    @Qualifier("RestClientRestTemplate")
+    private GitMembersAccessor restclient;
 
     @Override
     public List<GitMember> getAllGitMembers() {
@@ -31,7 +33,7 @@ public class DaoMemberImpl implements DaoEntity<GitMember> {
     @Override
     public GitMember getGitMemberByName(String fullName) {
 
-        GitMember gitMember = (GitMember) restclient.retrieveGitMemberByName(fullName);
+        GitMember gitMember = restclient.retrieveGitMemberByName(fullName);
 
         return gitMember;
     }
