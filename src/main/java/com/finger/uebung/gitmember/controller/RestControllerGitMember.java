@@ -20,18 +20,11 @@ public class RestControllerGitMember {
 
     @GetMapping("/members")
     public @ResponseBody List<GitMember> getAllGitMembers(){
-        return gitMemberService.getAllGitMembers();
-    }
-
-    /**
-    @RequestMapping(value={"/members"}, method = RequestMethod.GET,produces="application/json;charset=UTF-8")
-    public @ResponseBody List<GitMember> getAllGitMembers(){
 
         return gitMemberService.getAllGitMembers();
     }
-     **/
 
-    @RequestMapping(value={"/members/{fullName}"}, method = RequestMethod.GET,produces="application/json;charset=UTF-8")
+    @GetMapping("/members/{fullName}")
     public @ResponseBody Optional<GitMember> getGitMemberByName(@PathVariable String fullName){
 
         return Optional.ofNullable(gitMemberService.getGitMemberByName(fullName));
