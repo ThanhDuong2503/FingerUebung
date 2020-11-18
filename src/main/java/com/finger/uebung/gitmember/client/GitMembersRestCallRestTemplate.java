@@ -5,7 +5,7 @@ import com.finger.uebung.base.json.ObjectMapper;
 import com.finger.uebung.gitmember.entities.GitMember;
 import com.finger.uebung.gitmember.entities.GitMemberDetails;
 import com.finger.uebung.gitmember.entities.GitMemberRepo;
-import com.finger.uebung.base.GitMembersAccessor;
+import com.finger.uebung.base.data.GitMembersAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component("RestClientRestTemplate")
-public class GitMembersRestCall implements GitMembersAccessor {
+public class GitMembersRestCallRestTemplate implements GitMembersAccessor {
 
     private RestTemplate restTemplate;
     private List<GitMember> gitMembers;
 
-    Logger logger = LoggerFactory.getLogger(GitMembersRestCall.class);
+    Logger logger = LoggerFactory.getLogger(GitMembersRestCallRestTemplate.class);
 
     @Autowired
-    public GitMembersRestCall(RestTemplate restTemplate) {
+    public GitMembersRestCallRestTemplate(RestTemplate restTemplate) {
 
         this.restTemplate = restTemplate;
         restTemplate.getMessageConverters().add(0, ObjectMapper.getMappingJackson2HttpMessageConverter());

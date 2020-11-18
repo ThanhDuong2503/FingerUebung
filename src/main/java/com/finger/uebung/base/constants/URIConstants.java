@@ -1,4 +1,4 @@
-package com.finger.uebung.constants;
+package com.finger.uebung.base.constants;
 
 public class URIConstants {
 

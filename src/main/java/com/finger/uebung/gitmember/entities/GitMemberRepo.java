@@ -1,4 +1,4 @@
-package com.finger.uebung.entities;
+package com.finger.uebung.gitmember.entities;
 
 import lombok.*;
 

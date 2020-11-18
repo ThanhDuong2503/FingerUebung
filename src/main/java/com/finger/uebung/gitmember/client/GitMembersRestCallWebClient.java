@@ -1,5 +1,6 @@
-package com.finger.uebung.gitmember.webclientImpl;
+package com.finger.uebung.gitmember.client;
 
+import com.finger.uebung.base.data.GitMembersAccessor;
 import com.finger.uebung.gitmember.entities.GitMember;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @Component("WebClientRestClient")
-public class GitMembersAccessor implements com.finger.uebung.base.GitMembersAccessor {
+public class GitMembersRestCallWebClient implements GitMembersAccessor {
 
     private WebClient.Builder webClientBuilder;
 
@@ -22,7 +23,7 @@ public class GitMembersAccessor implements com.finger.uebung.base.GitMembersAcce
     }
 
     @Autowired
-    public GitMembersAccessor(WebClient.Builder webClientBuilder){
+    public GitMembersRestCallWebClient(WebClient.Builder webClientBuilder){
         this.webClientBuilder = webClientBuilder;
     }
 
@@ -83,7 +84,7 @@ public class GitMembersAccessor implements com.finger.uebung.base.GitMembersAcce
 
         //CALL ALL MEMBERS
         WebClient.Builder webClientBuilder = WebClient.builder();
-        GitMembersAccessor d = new GitMembersAccessor(webClientBuilder);
+        GitMembersRestCallWebClient d = new GitMembersRestCallWebClient(webClientBuilder);
         System.out.println("Size: " + d.retrieveAllMembers());
     }
 

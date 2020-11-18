@@ -1,4 +1,4 @@
-package com.finger.uebung.entities;
+package com.finger.uebung.gitmember.entities;
 import lombok.*;
 import java.io.Serializable;
 import java.util.List;
@@ -12,8 +12,8 @@ import java.util.List;
 public class GitMember implements Serializable {
 
     private long id;
-    private String url; //--> hier steckt das Feld "name" (https://api.github.com/users/0x4a616e)
-    private String repos_url; //-> https://api.github.com/users/0x4a616e/repos
+    private String url;
+    private String repos_url;
     private GitMemberDetails gitMemberDetails;
     private List<GitMemberRepo> gitMemberRepos;
 

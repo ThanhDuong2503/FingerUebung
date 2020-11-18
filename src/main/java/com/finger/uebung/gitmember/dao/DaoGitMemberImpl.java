@@ -1,8 +1,8 @@
 package com.finger.uebung.gitmember.dao;
 
-import com.finger.uebung.base.DaoEntity;
+import com.finger.uebung.base.data.DaoEntity;
 import com.finger.uebung.gitmember.entities.GitMember;
-import com.finger.uebung.base.GitMembersAccessor;
+import com.finger.uebung.base.data.GitMembersAccessor;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

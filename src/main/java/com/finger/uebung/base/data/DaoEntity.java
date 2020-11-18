@@ -1,4 +1,4 @@
-package com.finger.uebung.base;
+package com.finger.uebung.base.data;
 
 import com.finger.uebung.gitmember.entities.GitMember;
 

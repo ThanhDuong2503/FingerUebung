@@ -1,7 +1,7 @@
-package com.finger.uebung.service;
+package com.finger.uebung.gitmember.service;
 
-import com.finger.uebung.dao.DaoEntity;
-import com.finger.uebung.entities.GitMember;
+import com.finger.uebung.base.data.DaoEntity;
+import com.finger.uebung.gitmember.entities.GitMember;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

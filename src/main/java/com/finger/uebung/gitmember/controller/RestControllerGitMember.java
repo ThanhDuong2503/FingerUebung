@@ -1,8 +1,7 @@
-package com.finger.uebung.controller;
+package com.finger.uebung.gitmember.controller;
 
-import com.finger.uebung.entities.GitMember;
-import com.finger.uebung.service.GitMemberService;
-import lombok.NoArgsConstructor;
+import com.finger.uebung.gitmember.entities.GitMember;
+import com.finger.uebung.gitmember.service.GitMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
